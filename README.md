@@ -1,5 +1,5 @@
 # Terminal-Bench 3 Task: Fix Billing Processor Signedness Bug
-[View analysis](./analize.md)
+[View analysis](./analysis.md)
 
 A Terminal-Bench 3 task that requires diagnosing and fixing a signed/unsigned integer
 bug in a compiled C binary with no source code available.
