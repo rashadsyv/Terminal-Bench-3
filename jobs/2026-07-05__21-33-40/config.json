@@ -1,0 +1,14 @@
+{
+    "job_name": "2026-07-05__21-33-40",
+    "agents": [
+        {
+            "name": "codex",
+            "model_name": "openai/gpt-4o"
+        }
+    ],
+    "tasks": [
+        {
+            "path": "."
+        }
+    ]
+}

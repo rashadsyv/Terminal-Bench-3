@@ -1,0 +1,129 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.15, pytest-9.1.1, pluggy-1.6.0 -- /usr/local/bin/python3
+cachedir: .pytest_cache
+rootdir: /tests
+collecting ... collected 5 items
+
+test_billing.py::test_output_file_exists FAILED                          [ 20%]
+test_billing.py::test_all_customers_present FAILED                       [ 40%]
+test_billing.py::test_customer_001_net_total FAILED                      [ 60%]
+test_billing.py::test_customer_002_net_total FAILED                      [ 80%]
+test_billing.py::test_customer_003_net_total FAILED                      [100%]
+
+=================================== FAILURES ===================================
+___________________________ test_output_file_exists ____________________________
+
+    def test_output_file_exists():
+        """Output file /app/output.txt must be present."""
+>       assert os.path.exists(OUTPUT_FILE), f"{OUTPUT_FILE} not found"
+E       AssertionError: /app/output.txt not found
+E       assert False
+E        +  where False = <function exists at 0x7c1bade8b420>('/app/output.txt')
+E        +    where <function exists at 0x7c1bade8b420> = <module 'posixpath' (frozen)>.exists
+E        +      where <module 'posixpath' (frozen)> = os.path
+
+test_billing.py:41: AssertionError
+__________________________ test_all_customers_present __________________________
+
+    def test_all_customers_present():
+        """All three customers must appear in the output."""
+>       data = parse_output()
+               ^^^^^^^^^^^^^^
+
+test_billing.py:46: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def parse_output():
+        """Parse CUST_NNN: <value> lines into a dict."""
+>       assert os.path.exists(OUTPUT_FILE), (
+            f"{OUTPUT_FILE} not found — did the agent save the output?"
+        )
+E       AssertionError: /app/output.txt not found — did the agent save the output?
+E       assert False
+E        +  where False = <function exists at 0x7c1bade8b420>('/app/output.txt')
+E        +    where <function exists at 0x7c1bade8b420> = <module 'posixpath' (frozen)>.exists
+E        +      where <module 'posixpath' (frozen)> = os.path
+
+test_billing.py:24: AssertionError
+_________________________ test_customer_001_net_total __________________________
+
+    def test_customer_001_net_total():
+        """
+        CUST_001 transactions: +5000, -1500 (refund), +2000.
+        Net = 5500 cents.  Buggy output would be ~71036 (refund zero-extended).
+        """
+>       data = parse_output()
+               ^^^^^^^^^^^^^^
+
+test_billing.py:56: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def parse_output():
+        """Parse CUST_NNN: <value> lines into a dict."""
+>       assert os.path.exists(OUTPUT_FILE), (
+            f"{OUTPUT_FILE} not found — did the agent save the output?"
+        )
+E       AssertionError: /app/output.txt not found — did the agent save the output?
+E       assert False
+E        +  where False = <function exists at 0x7c1bade8b420>('/app/output.txt')
+E        +    where <function exists at 0x7c1bade8b420> = <module 'posixpath' (frozen)>.exists
+E        +      where <module 'posixpath' (frozen)> = os.path
+
+test_billing.py:24: AssertionError
+_________________________ test_customer_002_net_total __________________________
+
+    def test_customer_002_net_total():
+        """
+        CUST_002 transactions: +12000, -3000 (refund), -500 (refund).
+        Net = 8500 cents.  Buggy output would be ~139572.
+        """
+>       data = parse_output()
+               ^^^^^^^^^^^^^^
+
+test_billing.py:68: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def parse_output():
+        """Parse CUST_NNN: <value> lines into a dict."""
+>       assert os.path.exists(OUTPUT_FILE), (
+            f"{OUTPUT_FILE} not found — did the agent save the output?"
+        )
+E       AssertionError: /app/output.txt not found — did the agent save the output?
+E       assert False
+E        +  where False = <function exists at 0x7c1bade8b420>('/app/output.txt')
+E        +    where <function exists at 0x7c1bade8b420> = <module 'posixpath' (frozen)>.exists
+E        +      where <module 'posixpath' (frozen)> = os.path
+
+test_billing.py:24: AssertionError
+_________________________ test_customer_003_net_total __________________________
+
+    def test_customer_003_net_total():
+        """
+        CUST_003 transactions: +8500, -1000 (refund).
+        Net = 7500 cents.  Buggy output would be ~73036.
+        """
+>       data = parse_output()
+               ^^^^^^^^^^^^^^
+
+test_billing.py:79: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def parse_output():
+        """Parse CUST_NNN: <value> lines into a dict."""
+>       assert os.path.exists(OUTPUT_FILE), (
+            f"{OUTPUT_FILE} not found — did the agent save the output?"
+        )
+E       AssertionError: /app/output.txt not found — did the agent save the output?
+E       assert False
+E        +  where False = <function exists at 0x7c1bade8b420>('/app/output.txt')
+E        +    where <function exists at 0x7c1bade8b420> = <module 'posixpath' (frozen)>.exists
+E        +      where <module 'posixpath' (frozen)> = os.path
+
+test_billing.py:24: AssertionError
+=========================== short test summary info ============================
+FAILED test_billing.py::test_output_file_exists - AssertionError: /app/output...
+FAILED test_billing.py::test_all_customers_present - AssertionError: /app/out...
+FAILED test_billing.py::test_customer_001_net_total - AssertionError: /app/ou...
+FAILED test_billing.py::test_customer_002_net_total - AssertionError: /app/ou...
+FAILED test_billing.py::test_customer_003_net_total - AssertionError: /app/ou...
+============================== 5 failed in 0.05s ===============================

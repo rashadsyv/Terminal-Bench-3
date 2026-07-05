@@ -1,0 +1,6 @@
+[oracle] Compiling fixed binary...
+[oracle] Running fixed binary...
+[oracle] Output:
+CUST_001: 5500
+CUST_002: 8500
+CUST_003: 7500

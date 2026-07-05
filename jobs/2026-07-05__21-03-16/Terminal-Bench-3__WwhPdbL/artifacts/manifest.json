@@ -1,0 +1,16 @@
+[
+  {
+    "source": "/logs/artifacts",
+    "destination": "artifacts/logs/artifacts",
+    "type": "directory",
+    "status": "empty",
+    "service": null
+  },
+  {
+    "source": "/app/output.txt",
+    "destination": "artifacts/app/output.txt",
+    "type": "file",
+    "status": "ok",
+    "service": null
+  }
+]

@@ -1,0 +1,12 @@
+{
+    "task": {
+        "path": "."
+    },
+    "trial_name": "Terminal-Bench-3__wtWyGif",
+    "trials_dir": "jobs/2026-07-05__21-33-40",
+    "agent": {
+        "name": "codex",
+        "model_name": "openai/gpt-4o"
+    },
+    "job_id": "9bf8a97e-7bae-4205-bfbb-1d38e5acb317"
+}

@@ -1,0 +1,13 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.15, pytest-9.1.1, pluggy-1.6.0 -- /usr/local/bin/python3
+cachedir: .pytest_cache
+rootdir: /tests
+collecting ... collected 5 items
+
+test_billing.py::test_output_file_exists PASSED                          [ 20%]
+test_billing.py::test_all_customers_present PASSED                       [ 40%]
+test_billing.py::test_customer_001_net_total PASSED                      [ 60%]
+test_billing.py::test_customer_002_net_total PASSED                      [ 80%]
+test_billing.py::test_customer_003_net_total PASSED                      [100%]
+
+============================== 5 passed in 0.03s ===============================

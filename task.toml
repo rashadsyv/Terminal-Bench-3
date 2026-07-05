@@ -1,0 +1,28 @@
+artifacts = ["/app/output.txt"]
+
+[metadata]
+author_name = ""
+author_email = ""
+author_organization = ""
+difficulty_explanation = "The agent must diagnose a signed/unsigned integer type bug in a compiled binary with no source code. The fix requires locating the exact movzwl (zero-extend) instruction in the disassembly and patching the opcode byte to movswl (sign-extend). GPT-4 fails because it correctly identifies the concept but picks the wrong instruction offset, calculates file offsets incorrectly (confusing VMA with file offset), and hallucinates assembly addresses when patching."
+solution_explanation = "The billing_processor binary reads 16-bit transaction amounts using 'unsigned short' instead of 'int16_t'. The assignment 'int32_t amt = amount' generates a movzwl (0F B7) instruction that zero-extends the amount, turning negative refunds into large positive numbers. The single-byte fix: change opcode byte 0xB7 to 0xBF to use movswl (sign-extend) at that location."
+verification_explanation = "Verifier reads /app/output.txt and checks that per-customer net totals match expected values: CUST_001=5500, CUST_002=8500, CUST_003=7500 cents."
+category = "software_engineering"
+tags = ["binary-patching", "debugging", "reverse-engineering", "c", "x86-assembly"]
+expert_time_estimate_hours = 1
+relevant_experience = "Systems programming background; experience with x86-64 assembly, objdump, and binary analysis."
+
+[verifier]
+timeout_sec = 60.0
+environment_mode = "separate"
+
+[agent]
+timeout_sec = 3600.0
+
+[environment]
+build_timeout_sec = 300.0
+cpus = 1
+memory_mb = 1024
+storage_mb = 4096
+gpus = 0
+allow_internet = true
